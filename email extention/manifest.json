@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Email Extractor",
+  "description": "Extract content from Gmail.",
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup1.html",
+    "default_icon": {
+      "16": "favicon-16x16.png",
+      "128": "android-chrome-192x192.png"
+    }
+  },
+  "permissions": ["scripting", "activeTab", "storage", "tabs"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content1.js"],
+      "css": ["content.css" ],
+      "exclude_matches": ["*://*/*foo*"]
+    }
+  ],
+  "host_permissions": [
+    "https://mail.google.com/"
+  ],
+  "options_ui": {
+    "page": "popup1.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.jpg" , "icon_2.png" , "favicon-32x32.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "favicon-16x16.png",
+    "128": "android-chrome-192x192.png"
+  }
+}

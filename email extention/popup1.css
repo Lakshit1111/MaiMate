@@ -1,0 +1,115 @@
+
+  /* Styling for the input field container */
+  body {
+    width: 350px;
+    height: 1000px;
+    padding: 10px;
+    
+  }
+
+/* Styling for the chat container */
+.container {
+    position: fixed;
+    top: 10px;
+    bottom: 10px;
+    margin-right: 1%;
+    left: auto; /* position at the right end of the screen */
+    right: 0;
+    width: 400px; /* adjust width as needed */
+    background-color: #dfd5e8; /* background color for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* add shadow for depth */
+    border-radius: 2%;
+    transition: right 0.5s ease; /* transition for smooth sliding */
+    border-left: 1px solid #e9ecef; /* border on the left side */
+    display: flex; /* use flexbox to align items */
+    flex-direction: column; /* stack children vertically */
+    justify-content: space-between; /* push items to top and bottom */
+    z-index: 20;
+  }
+  /* .container.slide-in {
+    right: 200px;
+  }
+  
+  /* Add animation when the container slides out */
+  .container.slide-out {
+    right: -400px;
+  } */
+  .show {
+    right: 0; /* slide in from the right */
+  }
+  
+  /* Styling for the chat messages */
+  .chat {
+    overflow-y: auto; /* allow scrolling if content exceeds container height */
+    max-height: calc(100vh - 160px); /*limit chat height to leave space for input */
+    padding: 20px; /* add padding to the chat area */
+    margin-bottom: 20px; /* add space at the bottom */
+  }
+  
+  .message {
+    margin-bottom: 15px; /* add space between messages */
+    overflow-wrap: break-word; /* allow long words to break and wrap */
+    border-radius: 5%;
+  }
+  
+
+  .sender {
+    display: block;
+    margin-left: 40%;
+    text-align: center; /* align sender's text to the left */
+    color: #007bff; /* blue color for sender's messages */
+    background-color: antiquewhite;
+    padding: 5px; /* add padding for spacing around the text */
+  }
+  
+  .receiver {
+    display: block;
+    margin-right: 40%;
+    text-align: center; /* align receiver's text to the right */
+    color: #28a745; /* green color for receiver's messages */
+    background-color: #d4edda; /* background color for receiver's messages */
+    padding: 5px; /* add padding for spacing around the text */
+  }
+  
+  /* Styling for the input field and button container */
+  .input-container {
+    display: flex;
+    padding: 2%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+    margin-bottom: 10%;
+    border: #656161;
+  }
+  
+  /* Styling for the input field */
+  .input-container input[type="text"] {
+    width: calc(100% - 40px); /* adjust width of input field */
+    padding: 3.2%;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    white-space: pre-wrap;
+  }
+  
+  /* Styling for the send button */
+  .input-container button {
+    width: 14%;
+    padding: 2%;
+    border: none;
+    border-radius: 3px;
+    background-color: #fafafa;
+    color: #656161;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  /* Add hover effect for the send button */
+  .input-container button:hover {
+    background-color: #e7efee;
+  }
+  
