@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Reply Dialog</title>
+    <link rel="stylesheet" href="dialog.css">
+    <style>
+        .dialog-overlay {
+    display: flex;
+}
+    </style>
+</head>
+<body>
+    <div id="dialog-overlay" class="dialog-overlay">
+        <div class="dialog">
+            <button class="close-button">X</button> <!-- Add a close button -->
+            <h2>Generated Reply</h2>
+            <textarea id="replyTextarea" placeholder="Generated reply will be displayed here..." readonly></textarea>
+            <!-- Make the textarea readonly to prevent user input -->
+            <div class="Lakshit-input-container">
+                <input type="Lakshit-text" id="Lakshit-messageInput" placeholder="Type your message...">
+                <button type="Lakshit-button" id="Lakshit-sendButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stroke-[1.5]" id="#sendbutton"><path d="M10 14l11 -11"></path><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="dialog.js" id="script"></script>
+</body>
+</html>
