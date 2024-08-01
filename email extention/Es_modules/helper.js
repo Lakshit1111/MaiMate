@@ -7,6 +7,7 @@ const groq = new Groq({
     apiKey:"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", 
     dangerouslyAllowBrowser: true 
 });
+
 async function main(prompt , type , prom = "") {
     let reponseGenrator;
     if(type == "Yes"){

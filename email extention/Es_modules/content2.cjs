@@ -28,7 +28,6 @@
                 // Create container for type box and buttons
                 container = document.createElement('div');
                 container.className = "emailContainer";
-                container.style.display = "fixed"; // Fixed typo here
 
                 // Create image icon
                 const icon = document.createElement('img');
@@ -45,7 +44,6 @@
                 // Create button container
                 buttonContainer = document.createElement('div');
                 buttonContainer.className = "buttonContainer";
-                buttonContainer.style.display = "fixed"; // Fixed typo here
 
                 // Create Generate button
                 const generateButton = createButton("Generate");

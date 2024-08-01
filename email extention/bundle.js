@@ -29508,7 +29508,7 @@ exports.createContext = Script.createContext = function (context) {
     const createUI = (emailContent) => {
         container = document.createElement('div');
         container.className = "emailContainer";
-        container.style.position = "fixed";
+        // container.style.position = "fixed";
 
         const icon = document.createElement('img');
         icon.src = chrome.runtime.getURL("favicon-32x32.png");
@@ -29521,7 +29521,7 @@ exports.createContext = Script.createContext = function (context) {
 
         buttonContainer = document.createElement('div');
         buttonContainer.className = "buttonContainer";
-        buttonContainer.style.position = "fixed";
+        // buttonContainer.style.position = "fixed";
 
         const generateButton = createButton("Generate");
         generateButton.style.display = "none";
@@ -29627,6 +29627,7 @@ exports.createContext = Script.createContext = function (context) {
             textToType = await main.main(email, "Follow Up");
         } else if (text === "Generate") {
             const input = document.querySelector(".emailTypeInput");
+            console.log("shdfisfoshfsidfbsdf")
             textToType = await main.main(email, "Generate", input.value);
         }
 

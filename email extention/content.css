@@ -1,11 +1,12 @@
 .emailContainer {
-    display: flex-box;
+    display: flex;
     /* align-items: center; Align items vertically */
     margin-top: 20px; /* Add some space above the container */
     width: 68%;
   }
   
   .emailTypeInput {
+    display: inline;
     flex: 1; /* Allow type box to grow and fill available space */
     padding: 8px; /* Add padding inside the input box */
     border: 1px solid #ccc; /* Add a border with a light gray color */
