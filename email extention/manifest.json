@@ -17,7 +17,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content2.js"],
+      "type":"module",
+      "js": ["bundle.js"],
       "css": ["content.css" , "dialog.css"],
       "exclude_matches": ["*://*/*foo*"]
     }
@@ -30,7 +31,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["icon.jpg" , "icon_2.png" , "favicon-32x32.png" , "dialog.html" , "dialog.js"],
+      "resources": ["icon.jpg" , "icon_2.png" , "favicon-32x32.png" , "dialog.html" , "dialog.js" , "Es_modules/helper.mjs" , "node_modules"],
       "matches": ["<all_urls>"]
     }
   ],

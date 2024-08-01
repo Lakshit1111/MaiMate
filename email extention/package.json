@@ -1,0 +1,12 @@
+{"name":"email-extention",
+"version":"1.0.0",
+"main":"Es_modules",
+"scripts":{
+    "test":"echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t [ envify --NODE_ENV development ] src/index.js -o bundle.js"
+    },
+"dependencies":{"browserify":"^17.0.0","dotenv":"^16.4.5","envify":"^4.1.0","groq-sdk":"^0.4.0"},
+"keywords":[],
+"author":"",
+"license":"ISC",
+"description":""}

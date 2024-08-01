@@ -1,5 +1,5 @@
 .emailContainer {
-    display: flex;
+    display: flex-box;
     /* align-items: center; Align items vertically */
     margin-top: 20px; /* Add some space above the container */
     width: 68%;

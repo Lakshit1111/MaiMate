@@ -1,12 +1,17 @@
-(() => {
+
+(async () => {
+    // const { main } = await import('./helper.js');
+    const main = require("./helper.js")
+    
     let container;
     let typeBox;
     let buttonContainer;
     let emailInputs;
+    let isGenerateButtonClicked = false;
 
     chrome.runtime.onMessage.addListener((obj, sender, sendResponse) => {
         const { value } = obj;
-        console.log(value);
+
         if (value === "New") {
             newGmail();
         }
@@ -16,9 +21,10 @@
         const isExist = document.getElementsByClassName("LButtonk")[0];
         console.log(isExist);
         if (!isExist) {
-            const emailContent = document.getElementsByClassName("a3s aiL ")[0];
+            const emailContent = document.getElementsByClassName("a3s aiL")[0];
+            emailExtractor();
             const check = document.getElementsByClassName("emailContainer")[0];
-            if (emailContent && !check) {
+            if (!check) {
                 // Create container for type box and buttons
                 container = document.createElement('div');
                 container.className = "emailContainer";
@@ -45,7 +51,9 @@
                 const generateButton = createButton("Generate");
                 generateButton.style.display = "none";
                 generateButton.id = "generate"
-                generateButton.addEventListener("click", function() {
+                generateButton.addEventListener("click", () => {
+                    console.log('weeeee')
+                    isGenerateButtonClicked = true;
                     openDialog("Generate");
                 });
                 buttonContainer.appendChild(generateButton);
@@ -99,7 +107,9 @@
 
                 // Add event listeners to the typeBox input
                 typeBox.addEventListener("focus", handleInputFocus);
+                if(!isGenerateButtonClicked){
                 typeBox.addEventListener("blur", handleInputBlur);
+                }
             }
         }
     }
@@ -123,34 +133,49 @@
     }
 
     const handleInputBlur = () => {
-        buttonContainer.childNodes.forEach(node => {
-            if (node.nodeName === "BUTTON" && node.innerText !== "Generate") {
-                node.style.display = "flex";
-            }
-        });
-        typeBox.style.border.width = "2px";
-        buttonContainer.querySelector("button").style.display = "none";
-        typeBox.classList.remove("expanded");
+        // if(!isGenerateButtonClicked){
+            console.log('lsdfowoisnf')
+
+            buttonContainer.childNodes.forEach(node => {
+                if (node.nodeName === "BUTTON" && node.innerText !== "Generate") {
+                    node.style.display = "flex";
+                }
+            });
+            typeBox.style.border.width = "2px";
+            buttonContainer.querySelector("button").style.display = "none";
+            typeBox.classList.remove("expanded");
+        //  }
     }
 
-    const openDialog = (text) => {
+    const emailExtractor = () => {
+        const emailContent = document.getElementsByClassName("a3s aiL")[0];
+        console.log(emailContent.textContent)
+        return emailContent.textContent;
+    }
+
+    const openDialog = async (text) => {
         const dialog = document.getElementById("dialog-overlay")
         dialog.style.display = "flex";
 
         var replyTextarea = document.getElementById("replyTextarea");
+        const email = emailExtractor();
         // Define the text to be typed
         if(text === "Yes"){
-            var textToType = "Yes";
+            var textToType = await main.main(email , "Yes");
+            // console.log(main.main(email , "Yes"))
         }else if(text === "No"){
-            var textToType = "No";
+            var textToType =await  main.main(email , "No");
+            // console.log(main.main("Hi" , "No"))
         }else if(text === "Follow Up"){
-            var textToType = "Follow Up";
+            var textToType = await main.main(email , "Follow Up");
+            // console.log(main.main("Hi" , "Follow Up"))
         }else if(text === "Generate"){
             const input = document.getElementsByClassName("emailTypeInput")[0];
-            var textToType = input.value;
+            var textToType =await main.main(email , "Generate" , input.value);
+            // console.log(main.main("Hi" , "Yes"))
         }
         // Define the typing speed (in milliseconds)
-        var typingSpeed = 50; // Adjust as needed
+        var typingSpeed = 10; // Adjust as needed
 
         // Function to simulate typing
         function typeText() {
